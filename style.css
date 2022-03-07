@@ -106,6 +106,9 @@ h3 {
 
   .card-conversion {
     height: 60vh;
+    padding-top: 3em;
+    justify-content: flex-start;
+    gap: 3em;
   }
 
   .card-input, .card-conversion {
