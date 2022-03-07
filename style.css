@@ -1,0 +1,114 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0c163b;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 650px;
+  height: 80vh;
+}
+
+.card-input,
+.card-conversion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+}
+
+.card-input {
+  height: 35vh;
+  background: linear-gradient(246.26deg, #585dfe 0%, #fb3796 100%);
+  border-radius: 1em 1em 0 0;
+}
+
+.card-conversion {
+  height: 45vh;
+  background: #1f2937;
+  border-radius: 0 0 1em 1em;
+}
+
+.card-conversion > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-container div p {
+  color: #d2d2d2;
+}
+
+.card-headline {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form input {
+  width: 8em;
+  height: 3em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 2rem;
+  text-align: center;
+  border: none;
+  cursor: text;
+}
+
+.form input:focus::placeholder {
+  color: transparent;
+}
+
+/* Hide the spin-button inside input */
+.form input[type=number]::-webkit-inner-spin-button, 
+.form input[type=number]::-webkit-outer-spin-button {
+  display: none;
+}
+
+h3 {
+  margin-bottom: 0.25em;
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 799.98px) {
+  .card-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .card-input {
+    height: 40vh;
+  }
+
+  .card-conversion {
+    height: 60vh;
+  }
+
+  .card-input, .card-conversion {
+    border-radius: 0;
+  }
+}
