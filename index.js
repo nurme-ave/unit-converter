@@ -17,17 +17,17 @@ function displayResults() {
   const num = userInput.value
 
   if (!num || num <= 0) {
-    meterFeet.innerText = `0 meters = 0 feet | 0 feet = 0 meters`
-    litersGallon.innerText = `0 liters = 0 gallons | 0 gallons = 0 liters`
-    kilosPounds.innerText = `0 kilos = 0 pounds | 0 pounds = 0 kilos`
+    meterFeet.textContent = '0 meters = 0 feet | 0 feet = 0 meters'
+    litersGallon.textContent = '0 liters = 0 gallons | 0 gallons = 0 liters'
+    kilosPounds.textContent = '0 kilos = 0 pounds | 0 pounds = 0 kilos'
   } else if (num == 1) {
-    meterFeet.innerText = `${num} meter = ${convertMetersToFeet(num)} feet | ${num} foot = ${convertFeetToMeters(num)} meters`
-    litersGallon.innerText = `${num} liter = ${convertLitersToGallons(num)} gallons | ${num} gallon = ${convertGallonsToLiters(num)} liters`
-    kilosPounds.innerText = `${num} kilo = ${convertKilosToPounds(num)} pounds | ${num} pound = ${convertPoundsToKilos(num)} kilos`
+    meterFeet.textContent = `${num} meter = ${convertMetersToFeet(num)} feet | ${num} foot = ${convertFeetToMeters(num)} meters`
+    litersGallon.textContent = `${num} liter = ${convertLitersToGallons(num)} gallons | ${num} gallon = ${convertGallonsToLiters(num)} liters`
+    kilosPounds.textContent = `${num} kilo = ${convertKilosToPounds(num)} pounds | ${num} pound = ${convertPoundsToKilos(num)} kilos`
   } else {
-    meterFeet.innerText = `${num} meters = ${convertMetersToFeet(num)} feet | ${num} feet = ${convertFeetToMeters(num)} meters`
-    litersGallon.innerText = `${num} liters = ${convertLitersToGallons(num)} gallons | ${num} gallons = ${convertGallonsToLiters(num)} liters`
-    kilosPounds.innerText = `${num} kilos = ${convertKilosToPounds(num)} pounds | ${num} pounds = ${convertPoundsToKilos(num)} kilos`
+    meterFeet.textContent = `${num} meters = ${convertMetersToFeet(num)} feet | ${num} feet = ${convertFeetToMeters(num)} meters`
+    litersGallon.textContent = `${num} liters = ${convertLitersToGallons(num)} gallons | ${num} gallons = ${convertGallonsToLiters(num)} liters`
+    kilosPounds.textContent = `${num} kilos = ${convertKilosToPounds(num)} pounds | ${num} pounds = ${convertPoundsToKilos(num)} kilos`
   }
 }
 
