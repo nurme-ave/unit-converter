@@ -27,6 +27,7 @@ function convertLength(numberToConvert) {
   const metersToFeet = (numberToConvert * 3.28084);
   const feetToMeters = (numberToConvert / 3.28084);
   const lengthResult = [roundNumber(metersToFeet), roundNumber(feetToMeters)];
+  console.log(lengthResult)
   return lengthResult;
 }
 
@@ -34,6 +35,7 @@ function convertVolume(numberToConvert) {
   const litersToGallons = (numberToConvert * 0.2641);
   const gallonsToLiters = (numberToConvert / 0.2641);
   const volumeResult = [roundNumber(litersToGallons), roundNumber(gallonsToLiters)];
+  console.log(volumeResult)
   return volumeResult;
 }
 
@@ -41,6 +43,7 @@ function convertMass(numberToConvert) {
   const kilostoPounds = (numberToConvert * 2.20462);
   const poundsToKilos = (numberToConvert / 2.20462);
   const massResult = [roundNumber(kilostoPounds), roundNumber(poundsToKilos)];
+  console.log(massResult)
   return massResult;
 }
 
