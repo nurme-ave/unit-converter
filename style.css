@@ -89,7 +89,7 @@ body {
 }
 
 /* Hide the spin-button inside input for Mozilla */
-.form input[type='number'] {
+.form input[type=number] {
   -moz-appearance: textfield;
 }
 
