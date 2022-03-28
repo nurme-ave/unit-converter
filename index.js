@@ -1,62 +1,49 @@
-const userInput = document.getElementById('user-input')
-const meterFeet = document.getElementById('meter-feet')
-const litersGallon = document.getElementById('liters-gallon')
-const kilosPounds = document.getElementById('kilos-pounds')
+const userInput = document.getElementById('user-input');
+const lengthEl = document.getElementById('length');
+const volumeEl = document.getElementById('volume');
+const massEl = document.getElementById('mass');
 
+userInput.addEventListener('input', displayResults);
 
-userInput.addEventListener('input', displayResults)
-
+// Prevent the form submission on pressing the 'ENTER' key
 userInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    e.preventDefault()
+    e.preventDefault();
   }
-})
-
+});
 
 function displayResults() {
-  const num = userInput.value
+  const num = +userInput.value;
+  const len = convertLength(num);
+  const volume = convertVolume(num);
+  const mass = convertMass(num);
 
-  if (!num || num <= 0) {
-    meterFeet.textContent = '0 meters = 0 feet | 0 feet = 0 meters'
-    litersGallon.textContent = '0 liters = 0 gallons | 0 gallons = 0 liters'
-    kilosPounds.textContent = '0 kilos = 0 pounds | 0 pounds = 0 kilos'
-  } else if (num == 1) {
-    meterFeet.textContent = `${num} meter = ${convertMetersToFeet(num)} feet | ${num} foot = ${convertFeetToMeters(num)} meters`
-    litersGallon.textContent = `${num} liter = ${convertLitersToGallons(num)} gallons | ${num} gallon = ${convertGallonsToLiters(num)} liters`
-    kilosPounds.textContent = `${num} kilo = ${convertKilosToPounds(num)} pounds | ${num} pound = ${convertPoundsToKilos(num)} kilos`
-  } else {
-    meterFeet.textContent = `${num} meters = ${convertMetersToFeet(num)} feet | ${num} feet = ${convertFeetToMeters(num)} meters`
-    litersGallon.textContent = `${num} liters = ${convertLitersToGallons(num)} gallons | ${num} gallons = ${convertGallonsToLiters(num)} liters`
-    kilosPounds.textContent = `${num} kilos = ${convertKilosToPounds(num)} pounds | ${num} pounds = ${convertPoundsToKilos(num)} kilos`
-  }
+  lengthEl.textContent = `${num} meters = ${len[0]} feet | ${num} feet = ${len[1]} meters`;
+  volumeEl.textContent = `${num} liters = ${volume[0]} gallons | ${num} gallons = ${volume[1]} liters`;
+  massEl.textContent = `${num} kilos = ${mass[0]} pounds | ${num} pounds = ${mass[1]} kilos`;
 }
 
-function convertMetersToFeet(numberToConvert) {
-  const metersToFeet = (numberToConvert * 3.28084).toFixed(3)
-  return metersToFeet
+function convertLength(numberToConvert) {
+  const metersToFeet = (numberToConvert * 3.28084);
+  const feetToMeters = (numberToConvert / 3.28084);
+  const lengthResult = [roundNumber(metersToFeet), roundNumber(feetToMeters)];
+  return lengthResult;
 }
 
-function convertFeetToMeters(numberToConvert) {
-  const feetToMeters = (numberToConvert * 0.3048).toFixed(3)
-  return feetToMeters
+function convertVolume(numberToConvert) {
+  const litersToGallons = (numberToConvert * 0.2641);
+  const gallonsToLiters = (numberToConvert / 0.2641);
+  const volumeResult = [roundNumber(litersToGallons), roundNumber(gallonsToLiters)];
+  return volumeResult;
 }
 
-function convertLitersToGallons(numberToConvert) {
-  const litersToGallons = (numberToConvert * 0.2641).toFixed(3)
-  return litersToGallons
+function convertMass(numberToConvert) {
+  const kilostoPounds = (numberToConvert * 2.20462);
+  const poundsToKilos = (numberToConvert / 2.20462);
+  const massResult = [roundNumber(kilostoPounds), roundNumber(poundsToKilos)];
+  return massResult;
 }
 
-function convertGallonsToLiters(numberToConvert) {
-  const gallonsToLiters = (numberToConvert * 3.7854).toFixed(3)
-  return gallonsToLiters
-}
-
-function convertKilosToPounds(numberToConvert) {
-  const kilostoPounds = (numberToConvert * 2.20462).toFixed(3)
-  return kilostoPounds
-}
-
-function convertPoundsToKilos(numberToConvert) {
-  const poundsToKilos = (numberToConvert * 0.453592).toFixed(3)
-  return poundsToKilos
+function roundNumber(numberToRound) {
+  return +numberToRound.toFixed(3);
 }
