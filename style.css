@@ -88,6 +88,11 @@ body {
   display: none;
 }
 
+/* Hide the spin-button inside input for Mozilla */
+.form input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 h3 {
   margin-bottom: 0.25em;
 }
