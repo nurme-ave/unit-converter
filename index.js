@@ -2,14 +2,13 @@ const userInput = document.getElementById('user-input');
 const lengthEl = document.getElementById('length');
 const volumeEl = document.getElementById('volume');
 const massEl = document.getElementById('mass');
+const formEl = document.querySelector('.form');
 
 userInput.addEventListener('input', displayResults);
 
 // Prevent the form submission on pressing the 'ENTER' key
-userInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-  }
+formEl.addEventListener('submit', (e) => {
+  e.preventDefault();
 });
 
 function displayResults() {
